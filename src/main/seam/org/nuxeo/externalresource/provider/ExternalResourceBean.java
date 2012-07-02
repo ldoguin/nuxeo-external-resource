@@ -33,7 +33,6 @@ import org.nuxeo.runtime.api.Framework;
  */
 @Name("externalResourceService")
 @Scope(ScopeType.EVENT)
-@AutoLog
 public class ExternalResourceBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
