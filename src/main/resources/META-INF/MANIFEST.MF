@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-Vendor: Nuxeo
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Bundle-Version: 5.5
+Bundle-Name: nuxeo-external-resource
+Nuxeo-Component: OSGI-INF/extensions/org.nuxeo.externalresource.provid
+ er.ExternalResourceServiceImpl.xml,OSGI-INF/core-types-contrib.xml,OS
+ GI-INF/externalResource-provider-contrib.xml,OSGI-INF/layouts-contrib
+ .xml,OSGI-INF/ui-types-contrib.xml
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: nuxeo-external-resource
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

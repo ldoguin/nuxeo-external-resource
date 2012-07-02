@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.externalresource.provider.ExternalResourceProviderService"
+  version="1.0">
+
+  <implementation
+    class="org.nuxeo.externalresource.provider.ExternalResourceProviderServiceImpl" />
+
+  <documentation>
+    The ExternalResourceProviderService register
+    ExternalResourceProvider using the provider extension point. It can
+    return all of them as a list or a specific one by name.
+    @author Laurent Doguin (ldoguin@nuxeo.com)
+  </documentation>
+
+  <service>
+    <provide
+      interface="org.nuxeo.externalresource.provider.ExternalResourceProviderService" />
+  </service>
+
+
+  <extension-point name="provider">
+    <documentation>
+      The provider extension point register provider using a name and a
+      class implementing the ExternalResourceProvider interface.
+      <code>
+        <provider name="youtube"
+          class="org.nuxeo.externalresource.provider.YoutubeProvider" />
+      </code>
+      @author Laurent Doguin (ldoguin@nuxeo.com)
+    </documentation>
+    <object
+      class="org.nuxeo.externalresource.provider.ExternalResourceProviderDescriptor" />
+  </extension-point>
+</component>

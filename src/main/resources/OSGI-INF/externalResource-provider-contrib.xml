@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.externalresource.provider.contrib">
+
+  <extension target="org.nuxeo.externalresource.provider.ExternalResourceProviderService" point="provider">
+    <provider name="youtube" class="org.nuxeo.externalresource.provider.instance.oembed.YoutubeProvider" />
+<!--     <provider name="vimeo" class="org.nuxeo.externalresource.provider.instance.oembed.VimeoProvider" /> -->
+<!--     <provider name="slideshare" class="org.nuxeo.externalresource.provider.instance.oembed.SlideShareProvider" /> -->
+    <provider name="flickr" class="org.nuxeo.externalresource.provider.instance.oembed.FlickrProvider" />
+  </extension>
+
+</component>

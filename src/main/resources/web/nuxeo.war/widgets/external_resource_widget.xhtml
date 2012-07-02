@@ -1,0 +1,85 @@
+<f:subview xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+  xmlns:nxu="http://nuxeo.org/nxweb/util"
+  xmlns:nxdir="http://nuxeo.org/nxdirectory"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:nxp="http://nuxeo.org/nxweb/pdf" id="#{widget.id}">
+
+  <c:if test="#{widget.mode != 'create' and widget.mode != 'edit'}">
+    <h3 class="summaryTitle">#{messages['label.externalResource.content']}</h3>
+    <div id="oEmbedContent">
+      <h:outputText id="htmlContent" value="#{field_2}" escape="false" />
+    </div>
+    <table class="dataInput">
+      <tbody>
+        <tr>
+          <td class="labelColumn"><h:outputText
+              styleClass="labelColumn"
+              value="#{messages['label.widget.externalResource.externalResource']}" />
+          </td>
+          <td class="fieldColumn"><h:outputText id="link" value="#{field_0}" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </c:if>
+
+  <c:if test="#{widget.mode == 'create' or widget.mode == 'edit'}">
+
+    <a4j:region id="#{widget.id}_region">
+      <h:inputText id="oEmbedInput" value="#{field_0}">
+        <a4j:support event="onkeyup" reRender="oEmbedObjectContainer"
+          requestDelay="1000"
+          actionListener="#{externalResourceManager.inputChange}"
+          ignoreDupResponses="true" eventsQueue="oEmbedInputQueue">
+        </a4j:support>
+      </h:inputText>
+      <span id="hidden_fields">
+        <h:inputHidden value="#{field_2}" />
+        <h:inputHidden value="#{field_3}" />
+        <h:inputHidden value="#{field_1}" />
+        <h:inputHidden value="#{field_4}" />
+      </span>
+
+      <a4j:status>
+        <f:facet name="start">
+          <h:graphicImage value="/img/standart_waiter.gif" />
+        </f:facet>
+      </a4j:status>
+
+      <a4j:outputPanel id="oEmbedObjectContainer">
+        <div>
+          <h:outputText
+            value="#{messages['label.externalResource.supportedSites']}" />
+          <br />
+          <div>
+            <c:forEach var="provider"
+              items="#{externalResourceManager.getProviderOptions()}">
+              <nxu:graphicImage alt="#{provider.getName()}"
+                title="#{provider.getName()}"
+                value="#{provider.getIcon()}"
+                styleClass="#{nxu:test(provider.getName() == externalResourceManager.providerName, 'bigIcon itemSelected', 'bigIcon')}" />
+            </c:forEach>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+          document.getElementById('hidden_fields').childNodes[0].value = '#{externalResourceManager.html}';
+          document.getElementById('hidden_fields').childNodes[1].value = '#{externalResourceManager.providerIcon}';
+          document.getElementById('hidden_fields').childNodes[2].value = '#{externalResourceManager.providerName}';
+          document.getElementById('hidden_fields').childNodes[3].value = '#{externalResourceManager.title}';
+        </script>
+        <div>
+          <h:outputText
+            value="#{messages['label.externalResource.content']}" />
+        </div>
+        <div>
+          <h:outputText id="htmlContent"
+            value="#{externalResourceManager.html}" escape="false" />
+        </div>
+      </a4j:outputPanel>
+    </a4j:region>
+
+  </c:if>
+</f:subview>

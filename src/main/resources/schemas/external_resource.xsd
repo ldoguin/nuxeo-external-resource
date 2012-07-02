@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:nxs="http://www.nuxeo.org/ecm/schemas/externalresource" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.nuxeo.org/ecm/schemas/externalresource">
+
+  <xs:element name="link" type="xs:string"/>
+  <xs:element name="html" type="xs:string"/>
+  <xs:element name="provider" type="xs:string"/>
+  <xs:element name="providerIcon" type="xs:string"/>
+
+</xs:schema>

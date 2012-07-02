@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="org.nuxeo.externalresource.jsf.types">
+
+  <require>org.nuxeo.ecm.platform.types</require>
+
+  <extension target="org.nuxeo.ecm.platform.types.TypeService" point="types">
+    <type id="ExternalResource">
+      <label>ExternalResource</label>
+      <default-view>view_documents</default-view>
+      <icon>/icons/video.png</icon>
+      <bigIcon>/icons/video_big.png</bigIcon>
+      <category>SimpleDocument</category>
+      <description>ExternalResource.description</description>
+      <layouts mode="any">
+        <layout>heading</layout>
+        <layout>externalResource</layout>
+      </layouts>
+      <layouts mode="edit">
+        <layout>externalResource</layout>
+      </layouts>
+      <layouts mode="create">
+        <layout>externalResource</layout>
+      </layouts>
+      <layouts mode="summary">
+        <layout>externalResource_summary_layout</layout>
+      </layouts>
+    </type>
+
+    <type id="Workspace">
+      <subtypes>
+        <type>ExternalResource</type>
+      </subtypes>
+    </type>
+
+    <type id="Folder">
+      <subtypes>
+        <type>ExternalResource</type>
+      </subtypes>
+    </type>
+
+  </extension>
+
+</component>
