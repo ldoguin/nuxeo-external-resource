@@ -32,7 +32,6 @@ import org.osgi.framework.Bundle;
 /**
  * @author ldoguin
  */
-@AutoLog
 public class ExternalResourceProviderServiceImpl extends DefaultComponent
         implements ExternalResourceProviderService {
 

@@ -31,7 +31,7 @@
       <h:inputText id="oEmbedInput" value="#{field_0}">
         <a4j:support event="onkeyup" reRender="oEmbedObjectContainer"
           requestDelay="1000"
-          actionListener="#{externalResourceManager.inputChange}"
+          actionListener="#{oembedResourceManager.inputChange}"
           ignoreDupResponses="true" eventsQueue="oEmbedInputQueue">
         </a4j:support>
       </h:inputText>
@@ -55,7 +55,7 @@
           <br />
           <div>
             <c:forEach var="provider"
-              items="#{externalResourceManager.getProviderOptions()}">
+              items="#{oembedResourceManager.getProviderOptions()}">
               <nxu:graphicImage alt="#{provider.getName()}"
                 title="#{provider.getName()}"
                 value="#{provider.getIcon()}"
@@ -65,10 +65,10 @@
         </div>
 
         <script type="text/javascript">
-          document.getElementById('hidden_fields').childNodes[0].value = '#{externalResourceManager.html}';
-          document.getElementById('hidden_fields').childNodes[1].value = '#{externalResourceManager.providerIcon}';
-          document.getElementById('hidden_fields').childNodes[2].value = '#{externalResourceManager.providerName}';
-          document.getElementById('hidden_fields').childNodes[3].value = '#{externalResourceManager.title}';
+          document.getElementById('hidden_fields').childNodes[0].value = '#{oembedResourceManager.html}';
+          document.getElementById('hidden_fields').childNodes[1].value = '#{oembedResourceManager.providerIcon}';
+          document.getElementById('hidden_fields').childNodes[2].value = '#{oembedResourceManager.providerName}';
+          document.getElementById('hidden_fields').childNodes[3].value = '#{oembedResourceManager.title}';
         </script>
         <div>
           <h:outputText
@@ -76,7 +76,7 @@
         </div>
         <div>
           <h:outputText id="htmlContent"
-            value="#{externalResourceManager.html}" escape="false" />
+            value="#{oembedResourceManager.html}" escape="false" />
         </div>
       </a4j:outputPanel>
     </a4j:region>
